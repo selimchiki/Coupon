@@ -19,11 +19,18 @@ RSpec.describe "Coupon" do
         expect(coupons.coupons).to eq({"SUMMER" => 15})
     end
 
-    it "verify if an coupons exist" do
+    it "verify if an coupons exist and return true if coupon exist" do
         coupon = Coupon.new("SUMMER", 15)
         coupons = Coupons.new()
         coupons.add(coupon)
         expect(coupons.get("SUMMER")).to eq(true)
+    end
+
+    it "verify if an coupons exist and return false if coupon don't exist" do 
+        coupon = Coupon.new("SUMMER", 15)
+        coupons = Coupons.new()
+        coupons.add(coupon)
+        expect(coupons.get("SUUU")).to eq("Sorry, we don't found the Coupon")
     end
 
     it "execute the reduction with pourcentage of coupon" do

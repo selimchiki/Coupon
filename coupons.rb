@@ -11,7 +11,11 @@ class Coupons
     end
 
     def get(code)
-        return @coupons.has_key?(code)
+        if @coupons.has_key?(code)
+            return @coupons.has_key?(code)
+        else
+            return "Sorry, we don't found the Coupon"
+        end
     end
 
     def apply(code, total)
